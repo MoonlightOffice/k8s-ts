@@ -1,4 +1,4 @@
-import { ApiResource, metadata, Namespace, Secret } from "$pkg";
+import { ApiResource, metadata, Namespace, Secret } from "$api/core/mod.ts";
 import { stringify } from "@std/yaml";
 
 export function emit(apiResources: ApiResource[]): string {

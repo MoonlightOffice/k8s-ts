@@ -1,5 +1,11 @@
 import { config } from "$config";
-import { labels, metadata, Service, ServicePort, ServiceType } from "$pkg";
+import {
+  labels,
+  metadata,
+  Service,
+  ServicePort,
+  ServiceType,
+} from "$api/core/mod.ts";
 
 function service(param: {
   name: string;

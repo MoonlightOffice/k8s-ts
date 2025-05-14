@@ -1,7 +1,11 @@
-import { labels, metadata } from "$pkg";
+import {
+  Deployment,
+  labels,
+  metadata,
+  PodSpec,
+  Resources,
+} from "$api/core/mod.ts";
 import { config } from "$config";
-import { Deployment } from "../pkg/resources/deploy.ts";
-import { PodSpec, Resources } from "../pkg/resources/pod.ts";
 
 function deployApp(param: {
   name: string;

@@ -1,6 +1,5 @@
-import { emit, emitSecret } from "$pkg";
-import { apiResources } from "$files";
-import { appNamespace } from "./files/ns.ts";
+import { emit, emitSecret } from "$tool";
+import { apiResources, appNamespace } from "$files";
 import { config } from "$config";
 
 const TASK = Deno.env.get("TASK") || "";

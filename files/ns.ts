@@ -1,4 +1,4 @@
-import { metadata, Namespace } from "$pkg";
+import { metadata, Namespace } from "$api/core/mod.ts";
 import { config } from "$config";
 
 export const appNamespace: Namespace = {
