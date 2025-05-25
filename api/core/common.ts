@@ -1,6 +1,5 @@
-export interface Labels {
+export interface Labels extends Record<string, string> {
   "app.kubernetes.io/name": string;
-  [key: string]: string;
 }
 
 export function labels(name: string): Labels {
@@ -11,18 +10,14 @@ export interface Metadata {
   namespace: string;
   name: string;
   labels: Labels;
-  annotations?: {
-    [key: string]: string;
-  };
+  annotations?: Record<string, string> ;
 }
 
 export function metadata(param: {
   namespace: string;
   name: string;
   labels?: Labels;
-  annotations?: {
-    [key: string]: string;
-  };
+  annotations?: Record<string, string> ;
 }): Metadata {
   const m: Metadata = {
     name: param.name,

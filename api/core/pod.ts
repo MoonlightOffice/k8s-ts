@@ -1,5 +1,5 @@
 import { ApiResource } from "./common.ts";
-import { Env, EnvFrom, EnvVarSource } from "./env.ts";
+import { Env, EnvFrom } from "./env.ts";
 
 export interface Volume {
   name: string;
@@ -59,9 +59,7 @@ export interface Container {
 export interface PodSpec {
   containers: Container[];
   volumes?: Volume[];
-  nodeSelector?: {
-    [key: string]: string;
-  };
+  nodeSelector?: Record<string, string> ;
   restartPolicy?: "Always" | "OnFailure" | "Never";
   terminationGracePeriodSeconds?: number;
 }

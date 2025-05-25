@@ -26,7 +26,7 @@ export function emit(apiResources: ApiResource[]): string {
 export function emitSecret(param: {
   name: string;
   namespace: Namespace;
-  jsonSecret: string;
+  jsonSecret: Record<string, string>;
 }): string {
   const secret: Secret = {
     apiVersion: "v1",
@@ -35,7 +35,7 @@ export function emitSecret(param: {
       name: param.name,
       namespace: param.namespace.metadata.name,
     }),
-    stringData: JSON.parse(param.jsonSecret),
+    stringData: param.jsonSecret,
   };
 
   const apiResources: ApiResource[] = [

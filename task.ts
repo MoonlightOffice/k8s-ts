@@ -24,7 +24,7 @@ switch (TASK) {
       const secret = emitSecret({
         name: config.SECRET_NAME,
         namespace: appNamespace,
-        jsonSecret,
+        jsonSecret: JSON.parse(jsonSecret),
       });
       Deno.writeFileSync(
         `${emittingDirectory}./secret.yaml`,
