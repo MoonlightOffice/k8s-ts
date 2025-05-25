@@ -1,18 +1,22 @@
-import { emit, emitSecret } from "$tool";
+import { emit, emitSecret, recreateDirectory } from "$tool";
 import { apiResources, appNamespace } from "$files";
 import { config } from "$config";
 
 const TASK = Deno.env.get("TASK") || "";
 const ENV = Deno.env.get("ENV") || "local";
 
+const emittingDirectory = ".out/";
+
 switch (TASK) {
   case "emit":
+    await recreateDirectory(emittingDirectory);
     Deno.writeFileSync(
-      "./spec.yaml",
+      `${emittingDirectory}/spec.yaml`,
       new Uint8Array(await new Blob([emit(apiResources)]).arrayBuffer()),
     );
     break;
   case "emit-secret":
+    await recreateDirectory(emittingDirectory);
     {
       const jsonSecret = await new Blob([
         Deno.readFileSync(`./secret.${ENV}.json`),
@@ -23,7 +27,7 @@ switch (TASK) {
         jsonSecret,
       });
       Deno.writeFileSync(
-        "./secret.yaml",
+        `${emittingDirectory}./secret.yaml`,
         new Uint8Array(await new Blob([secret]).arrayBuffer()),
       );
     }

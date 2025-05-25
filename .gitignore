@@ -1,7 +1,4 @@
 .DS_Store
-.out/*
+.out/
 secret.*.ts
 !secret.local.ts
-
-spec.yaml
-secret.yaml

@@ -1,5 +1,14 @@
 import { ApiResource, metadata, Namespace, Secret } from "$api/core/mod.ts";
 import { stringify } from "@std/yaml";
+import { exists } from "@std/fs";
+
+export async function recreateDirectory(path: string) {
+  if (await exists(path, { isDirectory: true })) {
+    await Deno.remove(path, { recursive: true });
+  }
+
+  await Deno.mkdir(path);
+}
 
 export function emit(apiResources: ApiResource[]): string {
   let output: string = "";

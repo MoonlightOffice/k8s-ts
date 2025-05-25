@@ -2,7 +2,7 @@
 
 Write Kubernetes files in TypeScript.
 
-$api: TypeScript interfaces for Kubernetes api resources. 
+$api: TypeScript interfaces for Kubernetes api resources.
 
 $tool: Utility tools are included here.
 
